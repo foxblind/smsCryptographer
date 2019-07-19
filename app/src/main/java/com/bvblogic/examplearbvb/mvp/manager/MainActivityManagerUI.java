@@ -8,6 +8,8 @@ import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.fragment.ChatsFragment;
 
 import com.bvblogic.examplearbvb.fragment.ChatsFragment_;
+import com.bvblogic.examplearbvb.fragment.MessagesFragment;
+import com.bvblogic.examplearbvb.fragment.MessagesFragment_;
 import com.bvblogic.examplearbvb.mvp.core.FragmentData;
 import com.bvblogic.examplearbvb.mvp.manager.core.BaseMainActivityManagerUI;
 
@@ -39,8 +41,19 @@ public class MainActivityManagerUI extends BaseMainActivityManagerUI {
         switch (fragment.getFragmentById()) {
             
             case CHAT_LIST_FRAGMENT:{
-                addFragmentToContainer(ChatsFragment_.builder().build(), false,this.getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(0, android.R.anim.fade_out));
+                addFragmentToContainer(ChatsFragment_.builder().build(), false,
+                        this.getActivity().
+                                getSupportFragmentManager().
+                                beginTransaction().
+                                setCustomAnimations(0, android.R.anim.fade_out));
             }
+
+            case MESSAGES_FRAGMENT:
+                addFragmentToContainer(MessagesFragment_.builder().build(),false,
+                        this.getActivity().
+                                getSupportFragmentManager().
+                                beginTransaction().
+                                setCustomAnimations(0, android.R.anim.fade_out));
 
         }
     }

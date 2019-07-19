@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
 
 import com.bvblogic.examplearbvb.R;
-import com.bvblogic.examplearbvb.bean.Chat.ProviderBeanChat;
+import com.bvblogic.examplearbvb.bean.chat.ProviderBeanChat;
 import com.bvblogic.examplearbvb.db.datamanager.ChatDataManager;
 import com.bvblogic.examplearbvb.db.domain.Chat;
 

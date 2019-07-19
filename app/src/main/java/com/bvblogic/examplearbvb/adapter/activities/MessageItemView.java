@@ -2,34 +2,28 @@ package com.bvblogic.examplearbvb.adapter.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.activity.core.BaseActivity;
 import com.bvblogic.examplearbvb.db.domain.Chat;
+import com.bvblogic.examplearbvb.db.domain.Message;
 
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
+@EViewGroup(R.layout.item_message)
+public class MessageItemView extends LinearLayout {
+    @ViewById(R.id.messageText)
+    TextView messageText;
 
-@EViewGroup(R.layout.item_chat)
-public class ChatItemView extends RelativeLayout {
-
-    @ViewById(R.id.phone)
-    TextView phone;
-
-
-    public ChatItemView(BaseActivity context) {
+    public MessageItemView(BaseActivity context) {
         super(context);
     }
 
     @SuppressLint("CheckResult")
-    public void bind(Chat chat, int i) {
-        phone.setText(String.valueOf(chat.getPhone()));
+    public void bind(Message message, int i) {
+        messageText.setText(String.valueOf(message.getText()));
     }
-
-
 }

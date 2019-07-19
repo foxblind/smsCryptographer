@@ -6,25 +6,26 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import com.bvblogic.examplearbvb.db.domain.Chat;
+import com.bvblogic.examplearbvb.db.domain.Message;
 
 import java.util.List;
 
 import io.reactivex.Single;
+
 @Dao
-public interface ChatDao {
-    @Query("SELECT * FROM chat")
-    Single<List<Chat>> getAll();
+public interface MessageDao {
+    @Query("SELECT * FROM messages")
+    Single<List<Message>> getAll();
 
-    @Query("SELECT * FROM CHAT WHERE phone IS :phone")
-    Single<Chat> get(String phone);
+    @Query("SELECT * FROM messages WHERE sender IS :sender")
+    Single<Message> get(int sender);
 
-    @Query("SELECT COUNT(*) from chat")
-    int countChats();
+    @Query("SELECT COUNT(*) from messages")
+    int countMessages();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    List<Long> insertAll(Chat... chats);
+    List<Long> insertAll(Message... messages);
 
     @Delete
-    void delete(Chat chat);
+    void delete(Message message);
 }

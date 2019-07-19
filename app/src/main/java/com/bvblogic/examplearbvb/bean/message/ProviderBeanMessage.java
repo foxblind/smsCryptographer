@@ -1,22 +1,22 @@
-package com.bvblogic.examplearbvb.bean.Chat;
+package com.bvblogic.examplearbvb.bean.message;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.bvblogic.examplearbvb.adapter.activities.ChatAdapter;
 
+import com.bvblogic.examplearbvb.adapter.activities.MessageAdapter;
 import com.bvblogic.examplearbvb.bean.core.Bean;
-import com.bvblogic.examplearbvb.db.domain.Chat;
 
+import com.bvblogic.examplearbvb.db.domain.Message;
 
 import org.androidannotations.annotations.EBean;
 
 import java.util.List;
-@EBean
-public class ProviderBeanChat extends Bean {
 
+@EBean
+public class ProviderBeanMessage extends Bean {
     @org.androidannotations.annotations.Bean
-    public ChatAdapter adapter;
+    public MessageAdapter adapter;
 
     public void initAdapter(RecyclerView rv) {
         rv.setHasFixedSize(true);
@@ -24,8 +24,7 @@ public class ProviderBeanChat extends Bean {
         rv.setAdapter(adapter);
     }
 
-    public void initAdapter(List<Chat> chats) {
-        adapter.setItems(chats);
-
+    public void initAdapter(List<Message> messages) {
+        adapter.setItems(messages);
     }
 }

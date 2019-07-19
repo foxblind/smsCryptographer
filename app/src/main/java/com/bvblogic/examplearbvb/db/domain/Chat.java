@@ -19,6 +19,7 @@ public class Chat {
     @ColumnInfo(name = "phone")
     private String phone = "";
 
+
     public String getPhone() {
         return phone;
     }
