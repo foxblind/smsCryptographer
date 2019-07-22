@@ -3,7 +3,6 @@ package com.bvblogic.examplearbvb.db.domain;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
-import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 import io.reactivex.annotations.NonNull;
@@ -27,6 +26,13 @@ public class Message {
     @ColumnInfo(name = "text")
     private String text;
 
+    public Message(int id, String chat, String sender, String text)
+    {
+        this.id = id;
+        this.chat = chat;
+        this.sender = sender;
+        this.text =text;
+    }
     public int getId() {
         return id;
     }

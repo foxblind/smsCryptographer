@@ -1,7 +1,7 @@
 package com.bvblogic.examplearbvb.adapter.activities;
 
 import android.support.annotation.NonNull;
-import android.view.View;
+
 import android.view.ViewGroup;
 import com.bvblogic.examplearbvb.activity.core.BaseActivity;
 import com.bvblogic.examplearbvb.adapter.core.RecyclerViewAdapterBase;
@@ -26,13 +26,7 @@ public class MessageAdapter extends RecyclerViewAdapterBase<Message, MessageItem
         MessageItemView view = activitiesItemViewViewWrapper.getView();
         Message message = items.get(i);
         view.setTag(i);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("MSG_CLICKED");
-
-            }
-        });
+        view.setOnClickListener(v -> System.out.println("MSG_CLICKED"));
         view.bind(message, i);
 
     }

@@ -35,12 +35,9 @@ public class SmsReceiver extends BroadcastReceiver {
             }
             SharedPreferences pref = context.getSharedPreferences("PREFS", Context.MODE_PRIVATE);
             int id = pref.getInt("MSG_ID", 0);
-            message = new Message();
-            message.setId(id++);
-            message.setSender("not_me");
-            chat = smsSender;
-            message.setChat(smsSender);
-            message.setText(smsBody);
+
+            message = new Message(id++, smsSender, "not_me", smsBody);
+
             SharedPreferences.Editor editor = pref.edit();
             editor.putInt("MSG_ID", id);
             editor.apply();

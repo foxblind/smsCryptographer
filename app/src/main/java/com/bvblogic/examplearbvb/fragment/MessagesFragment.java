@@ -2,13 +2,11 @@ package com.bvblogic.examplearbvb.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bvblogic.examplearbvb.R;
-import com.bvblogic.examplearbvb.adapter.activities.MessageItemView;
 import com.bvblogic.examplearbvb.db.domain.Message;
 import com.bvblogic.examplearbvb.db.presenter.MessagePresenter;
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
@@ -55,11 +53,7 @@ public class MessagesFragment extends BaseFragment {
         SharedPreferences pref = getActivity().getSharedPreferences("PREFS", Context.MODE_PRIVATE);
         int id = pref.getInt("MSG_ID", 0);
 
-        Message message = new Message();
-        message.setId(id++);
-        message.setChat(recipient);
-        message.setSender("me");
-        message.setText(messageText);
+        Message message = new Message(id++,recipient, "me", messageText);
 
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt("MSG_ID", id);

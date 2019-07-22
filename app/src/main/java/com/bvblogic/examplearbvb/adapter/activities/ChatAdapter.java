@@ -30,16 +30,13 @@ public class ChatAdapter extends RecyclerViewAdapterBase<Chat, ChatItemView> {
         ChatItemView view = activitiesItemViewViewWrapper.getView();
         Chat chat = items.get(i);
         view.setTag(i);
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putString("HEADER", view.phone.getText().toString());
-                editor.apply();
-                activity.changeFragmentTo(new FragmentData(FragmentById.MESSAGES_FRAGMENT));
+        view.setOnClickListener(v -> {
+            SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("HEADER", view.phone.getText().toString());
+            editor.apply();
+            activity.changeFragmentTo(new FragmentData(FragmentById.MESSAGES_FRAGMENT));
 
-            }
         });
 
         view.bind(chat, i);
