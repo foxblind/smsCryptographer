@@ -20,7 +20,7 @@ import com.bvblogic.examplearbvb.db.domain.Message;
 
 @Database(entities = {Chat.class, Message.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
-    public static final String DB_NAME = "my_database.db";
+    public static final String DB_NAME = "msg.db";
 
     private static AppDatabase INSTANCE;
 

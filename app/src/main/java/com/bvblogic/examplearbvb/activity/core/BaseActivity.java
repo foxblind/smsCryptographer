@@ -1,7 +1,6 @@
 package com.bvblogic.examplearbvb.activity.core;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
+
 import android.support.v7.app.AppCompatActivity;
 
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
@@ -42,7 +41,6 @@ public abstract class BaseActivity extends AppCompatActivity implements Fragment
 
     @Override
     public void onBackPressed() {
-        BaseFragment.changeColorBar(this, BaseFragment.ColorBar.WHITE_DARK);
         if (!managerUI.removeFragment()) {
             super.onBackPressed();
         }

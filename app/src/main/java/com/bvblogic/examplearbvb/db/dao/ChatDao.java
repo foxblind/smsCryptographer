@@ -7,6 +7,7 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import com.bvblogic.examplearbvb.db.domain.Chat;
+import com.bvblogic.examplearbvb.db.domain.Message;
 
 import java.util.List;
 
@@ -15,9 +16,6 @@ import io.reactivex.Single;
 public interface ChatDao {
     @Query("SELECT * FROM chat")
     Single<List<Chat>> getAll();
-
-    @Query("SELECT * FROM CHAT WHERE phone IS :phone")
-    Single<Chat> get(String phone);
 
     @Query("SELECT COUNT(*) from chat")
     int countChats();

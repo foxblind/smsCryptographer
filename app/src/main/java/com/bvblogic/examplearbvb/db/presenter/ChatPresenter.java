@@ -27,6 +27,7 @@ public class ChatPresenter extends Presenter<List<Chat>> {
     public void onSuccess(List<Chat> chats) {
         providerBeanChat.initAdapter(chatList);
         providerBeanChat.initAdapter(chats);
+
     }
 
     public void getAllChats() {
@@ -42,4 +43,6 @@ public class ChatPresenter extends Presenter<List<Chat>> {
             }
         });
     }
+
+
 }

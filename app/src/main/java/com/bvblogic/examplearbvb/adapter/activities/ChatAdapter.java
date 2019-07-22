@@ -1,10 +1,11 @@
 package com.bvblogic.examplearbvb.adapter.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.bvblogic.examplearbvb.activity.core.BaseActivity;
 import com.bvblogic.examplearbvb.adapter.core.RecyclerViewAdapterBase;
@@ -34,12 +35,18 @@ public class ChatAdapter extends RecyclerViewAdapterBase<Chat, ChatItemView> {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity,"HM",Toast.LENGTH_SHORT).show();
+                SharedPreferences sharedPref = activity.getPreferences(Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("HEADER", view.phone.getText().toString());
+                editor.apply();
                 activity.changeFragmentTo(new FragmentData(FragmentById.MESSAGES_FRAGMENT));
+
             }
         });
 
         view.bind(chat, i);
     }
+
+
 
 }

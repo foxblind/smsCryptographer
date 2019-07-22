@@ -2,7 +2,7 @@ package com.bvblogic.examplearbvb.db.datamanager;
 
 import com.bvblogic.examplearbvb.db.core.AppDatabase;
 import com.bvblogic.examplearbvb.db.datamanager.core.DBView;
-import com.bvblogic.examplearbvb.db.domain.Chat;
+
 import com.bvblogic.examplearbvb.db.domain.Message;
 
 import java.util.List;
@@ -22,6 +22,7 @@ public class MessageDataManager {
                     public void onSuccess(List<Message> messages) {
                         listDBView.onSuccess(messages);
                         listDBView.hideWait();
+
                     }
 
                     @Override
@@ -35,5 +36,27 @@ public class MessageDataManager {
     public void saveMessage(Message message, AppDatabase appDatabase, DBView<Long> listDBView) {
         listDBView.showWait();
         appDatabase.messageDao().insertAll(message);
+
+    }
+
+    public void get(AppDatabase appDatabase, DBView<List<Message>> listDBView, String from)
+    {
+        listDBView.showWait();
+        appDatabase.messageDao().get(from)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new DisposableSingleObserver<List<Message>>() {
+                    @Override
+                    public void onSuccess(List<Message> messages) {
+                        listDBView.onSuccess(messages);
+                        listDBView.hideWait();
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        listDBView.onError(e);
+                        listDBView.hideWait();
+                    }
+                });
     }
 }

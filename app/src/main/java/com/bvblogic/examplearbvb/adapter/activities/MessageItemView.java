@@ -1,13 +1,13 @@
 package com.bvblogic.examplearbvb.adapter.activities;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+
+import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.activity.core.BaseActivity;
-import com.bvblogic.examplearbvb.db.domain.Chat;
 import com.bvblogic.examplearbvb.db.domain.Message;
 
 import org.androidannotations.annotations.EViewGroup;
@@ -24,6 +24,9 @@ public class MessageItemView extends LinearLayout {
 
     @SuppressLint("CheckResult")
     public void bind(Message message, int i) {
+        if(message.getSender().equals("me"))
+            messageText.setGravity(Gravity.END);
         messageText.setText(String.valueOf(message.getText()));
+
     }
 }

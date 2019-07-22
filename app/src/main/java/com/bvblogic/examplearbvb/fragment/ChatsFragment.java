@@ -1,16 +1,23 @@
 package com.bvblogic.examplearbvb.fragment;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.bvblogic.examplearbvb.R;
 
+import com.bvblogic.examplearbvb.activity.core.BaseActivity;
+import com.bvblogic.examplearbvb.config.Config;
 import com.bvblogic.examplearbvb.db.domain.Chat;
 import com.bvblogic.examplearbvb.db.presenter.ChatPresenter;
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
+import com.bvblogic.examplearbvb.mvp.core.FragmentById;
+import com.bvblogic.examplearbvb.mvp.core.FragmentData;
 import com.bvblogic.examplearbvb.mvp.core.ToolBarById;
 
 import org.androidannotations.annotations.AfterViews;
@@ -18,6 +25,7 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.RootContext;
 
 import java.util.Random;
 
@@ -28,33 +36,28 @@ public class ChatsFragment extends BaseFragment {
 
     android.support.v7.widget.RecyclerView chatList;
 
+
+
     @Bean
     ChatPresenter chatPresenter;
     @AfterViews
     public void init() {
+        for(String permission : Config.PERMISSIONS)
+        {
+            if (ContextCompat.checkSelfPermission(getActivity(), permission)
+                    != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{permission},
+                        3);
+            }
+        }
         chatPresenter.getAllChats();
         chatList = getActivity().findViewById(R.id.chatList);
-        chatList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getContext(),"OU", Toast.LENGTH_SHORT).show();
-            }
-        });
     }
 
     @Click
     void btnTest()
     {
-        final SharedPreferences[] sharedPref = {getActivity().getPreferences(Context.MODE_PRIVATE)};
-        final int[] i = {sharedPref[0].getInt("ID", 0)};
-        Chat chat = new Chat();
-        chat.setId(i[0]);
-        chat.setPhone(""+ i[0]++);
-        chatPresenter.saveChat(chat);
-        chatPresenter.getAllChats();
-        SharedPreferences.Editor editor = sharedPref[0].edit();
-        editor.putInt("ID", i[0]);
-        editor.apply();
+        ((BaseActivity)getActivity()).changeFragmentTo(new FragmentData(FragmentById.CREATE_CHAT_FRAGMENT));
     }
 
 

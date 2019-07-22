@@ -17,11 +17,13 @@ public class ProviderBeanChat extends Bean {
 
     @org.androidannotations.annotations.Bean
     public ChatAdapter adapter;
-
+    static long currentVisiblePosition = 0;
     public void initAdapter(RecyclerView rv) {
         rv.setHasFixedSize(true);
         rv.setLayoutManager(new LinearLayoutManager(activity));
         rv.setAdapter(adapter);
+
+        currentVisiblePosition = ((LinearLayoutManager)rv.getLayoutManager()).findFirstCompletelyVisibleItemPosition();
     }
 
     public void initAdapter(List<Chat> chats) {

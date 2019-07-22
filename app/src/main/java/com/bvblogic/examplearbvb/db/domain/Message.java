@@ -10,17 +10,19 @@ import io.reactivex.annotations.NonNull;
 
 @Entity(tableName = "messages", foreignKeys = @ForeignKey(
         entity = Chat.class,
-        parentColumns = "id",
-        childColumns = "sender"))
+        parentColumns = "phone",
+        childColumns = "from"))
 public class Message {
     @PrimaryKey()
     @NonNull
     @ColumnInfo(name = "id")
     private int id;
 
+    @ColumnInfo(name = "from")
+    private String chat;
 
     @ColumnInfo(name = "sender")
-    private int senderId;
+    private String sender;
 
     @ColumnInfo(name = "text")
     private String text;
@@ -33,19 +35,27 @@ public class Message {
         this.id = id;
     }
 
-    public int getSenderId() {
-        return senderId;
-    }
-
-    public void setSenderId(int senderId) {
-        this.senderId = senderId;
-    }
-
     public String getText() {
         return text;
     }
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public String getChat() {
+        return chat;
+    }
+
+    public void setChat(String chatId) {
+        this.chat = chatId;
+    }
+
+    public String getSender() {
+        return sender;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 }

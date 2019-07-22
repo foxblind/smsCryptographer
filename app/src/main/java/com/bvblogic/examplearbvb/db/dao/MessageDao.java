@@ -17,8 +17,8 @@ public interface MessageDao {
     @Query("SELECT * FROM messages")
     Single<List<Message>> getAll();
 
-    @Query("SELECT * FROM messages WHERE sender IS :sender")
-    Single<Message> get(int sender);
+    @Query("SELECT * FROM messages WHERE `from` IS :from")
+    Single<List<Message>> get(String from);
 
     @Query("SELECT COUNT(*) from messages")
     int countMessages();

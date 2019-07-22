@@ -3,18 +3,21 @@ package com.bvblogic.examplearbvb.db.domain;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
 import io.reactivex.annotations.NonNull;
 
 
-@Entity(tableName = "chat")
+@Entity(tableName = "chat",indices = {@Index(value = {"phone"},
+        unique = true)})
 public class Chat {
 
     @PrimaryKey()
     @NonNull
     @ColumnInfo(name = "id")
     private int id;
+
 
     @ColumnInfo(name = "phone")
     private String phone = "";

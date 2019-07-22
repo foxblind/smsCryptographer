@@ -1,6 +1,7 @@
 package com.bvblogic.examplearbvb.db.presenter;
 
 import android.support.v7.widget.RecyclerView;
+import android.widget.Toast;
 
 import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.bean.chat.ProviderBeanChat;
@@ -33,5 +34,20 @@ public class MessagePresenter extends Presenter<List<Message>> {
 
     public void getAllMessages() {
         new MessageDataManager().getAllMessages(appDatabase, this);
+    }
+
+    public void saveMessage(Message message) {
+        new MessageDataManager().saveMessage(message, appDatabase, new Presenter<Long>() {
+            @Override
+            public void onSuccess(Long aLong) {
+                Toast.makeText(activity, "New Item", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    public void getMessagesFromChat(String chat)
+    {
+        new MessageDataManager().get(appDatabase, this, chat);
     }
 }

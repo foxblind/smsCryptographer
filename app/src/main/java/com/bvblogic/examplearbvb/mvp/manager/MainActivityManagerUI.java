@@ -2,14 +2,19 @@ package com.bvblogic.examplearbvb.mvp.manager;
 
 import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
+
 import android.support.v7.app.AppCompatActivity;
 
 import com.bvblogic.examplearbvb.R;
-import com.bvblogic.examplearbvb.fragment.ChatsFragment;
+
 
 import com.bvblogic.examplearbvb.fragment.ChatsFragment_;
-import com.bvblogic.examplearbvb.fragment.MessagesFragment;
+
+import com.bvblogic.examplearbvb.fragment.CreateChatFragment_;
+
 import com.bvblogic.examplearbvb.fragment.MessagesFragment_;
+
+import com.bvblogic.examplearbvb.mvp.core.FragmentById;
 import com.bvblogic.examplearbvb.mvp.core.FragmentData;
 import com.bvblogic.examplearbvb.mvp.manager.core.BaseMainActivityManagerUI;
 
@@ -38,22 +43,41 @@ public class MainActivityManagerUI extends BaseMainActivityManagerUI {
     @SuppressLint("CommitTransaction")
     @Override
     public void changeFragmentTo(FragmentData fragment) {
-        switch (fragment.getFragmentById()) {
+        FragmentById gragmentId = fragment.getFragmentById();
+        switch (gragmentId) {
             
-            case CHAT_LIST_FRAGMENT:{
-                addFragmentToContainer(ChatsFragment_.builder().build(), false,
+            case CHAT_LIST_FRAGMENT:
+                {
+                    removeFragment();
+                    addFragmentToContainer(ChatsFragment_.builder().build(), false,
                         this.getActivity().
                                 getSupportFragmentManager().
                                 beginTransaction().
-                                setCustomAnimations(0, android.R.anim.fade_out));
+                                setCustomAnimations(R.anim.anim_enter,  R.anim.anim_exit));
+                break;
             }
 
             case MESSAGES_FRAGMENT:
-                addFragmentToContainer(MessagesFragment_.builder().build(),false,
+                {
+                    addFragmentToContainer(MessagesFragment_.builder().build(),true,
                         this.getActivity().
                                 getSupportFragmentManager().
                                 beginTransaction().
-                                setCustomAnimations(0, android.R.anim.fade_out));
+                                setCustomAnimations(R.anim.anim_enter,  R.anim.anim_exit));
+                    fragments.add(MessagesFragment_.class.getSimpleName());
+                 break;
+            }
+            case CREATE_CHAT_FRAGMENT:
+            {
+                    addFragmentToContainer(CreateChatFragment_.builder().build(),true,
+                        this.getActivity().
+                                getSupportFragmentManager().
+                                beginTransaction().
+                                setCustomAnimations(R.anim.anim_enter,  R.anim.anim_exit));
+                fragments.add(CreateChatFragment_.class.getSimpleName());
+
+                break;
+            }
 
         }
     }
@@ -61,15 +85,13 @@ public class MainActivityManagerUI extends BaseMainActivityManagerUI {
     private void removeAnimFragment(Fragment fragment, int anim) {
         this.getActivity().getSupportFragmentManager().
                 beginTransaction().
-                setCustomAnimations(anim, anim).
+                setCustomAnimations(R.anim.anim_enter, anim).
                 remove(fragment).
                 commitAllowingStateLoss();
         getActivity().getSupportFragmentManager().popBackStack();
     }
 
-    private String[] fragments = {
-            //SplashFragment_.class.getSimpleName()
-    };
+    private static ArrayList<String> fragments = new ArrayList<>();
 
     @Override
     public boolean removeFragment() {
@@ -79,9 +101,10 @@ public class MainActivityManagerUI extends BaseMainActivityManagerUI {
 //                if (fragment.getClass().getSimpleName().equals(SplashFragment_.class.getSimpleName())) {
 //                    BaseFragment.changeColorBar(getActivity(), BaseFragment.ColorBar.WHITE_DARK);
 //                }
-//                removeAnimFragment(fragment, R.anim.anim_exit);
+                removeAnimFragment(fragment, R.anim.anim_exit);
                 return true;
             }
+
         }
         return false;
     }
