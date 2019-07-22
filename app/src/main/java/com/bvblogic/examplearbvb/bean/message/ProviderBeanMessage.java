@@ -2,15 +2,10 @@ package com.bvblogic.examplearbvb.bean.message;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-
 import com.bvblogic.examplearbvb.adapter.activities.MessageAdapter;
 import com.bvblogic.examplearbvb.bean.core.Bean;
-
 import com.bvblogic.examplearbvb.db.domain.Message;
-
 import org.androidannotations.annotations.EBean;
-
 import java.util.List;
 
 @EBean

@@ -2,13 +2,9 @@ package com.bvblogic.examplearbvb.bean.chat;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
 import com.bvblogic.examplearbvb.adapter.activities.ChatAdapter;
-
 import com.bvblogic.examplearbvb.bean.core.Bean;
 import com.bvblogic.examplearbvb.db.domain.Chat;
-
-
 import org.androidannotations.annotations.EBean;
 
 import java.util.List;

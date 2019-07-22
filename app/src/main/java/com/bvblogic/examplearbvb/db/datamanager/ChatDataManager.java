@@ -1,17 +1,9 @@
 package com.bvblogic.examplearbvb.db.datamanager;
 
-import android.support.v7.widget.RecyclerView;
-
-import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.db.core.AppDatabase;
 import com.bvblogic.examplearbvb.db.datamanager.core.DBView;
 import com.bvblogic.examplearbvb.db.domain.Chat;
-
-
-import org.androidannotations.annotations.ViewById;
-
 import java.util.List;
-
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;

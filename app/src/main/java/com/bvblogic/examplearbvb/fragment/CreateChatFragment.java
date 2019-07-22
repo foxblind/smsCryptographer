@@ -6,8 +6,6 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
-
 import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.activity.core.BaseActivity;
 import com.bvblogic.examplearbvb.db.domain.Chat;
@@ -15,13 +13,10 @@ import com.bvblogic.examplearbvb.db.presenter.ChatPresenter;
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
 import com.bvblogic.examplearbvb.mvp.core.FragmentById;
 import com.bvblogic.examplearbvb.mvp.core.FragmentData;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.RootContext;
 
 
 @EFragment(R.layout.fragment_create_chat)
@@ -51,7 +46,6 @@ public class CreateChatFragment extends BaseFragment {
     {
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         int i = sharedPref.getInt("ID", 0);
-
 
         Chat chat = new Chat();
         chat.setId(i);

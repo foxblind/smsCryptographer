@@ -2,8 +2,6 @@ package com.bvblogic.examplearbvb.mvp.manager.core;
 
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
-
 import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
 import com.bvblogic.examplearbvb.mvp.core.ToolBarById;

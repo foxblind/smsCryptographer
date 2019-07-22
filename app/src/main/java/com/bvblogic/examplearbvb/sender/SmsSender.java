@@ -1,7 +1,6 @@
 package com.bvblogic.examplearbvb.sender;
 
 import android.telephony.SmsManager;
-
 import com.bvblogic.examplearbvb.sender.core.Sender;
 
 public class SmsSender implements Sender {

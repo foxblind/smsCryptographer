@@ -2,7 +2,6 @@ package com.bvblogic.examplearbvb.preference;
 
 
 import com.bvblogic.examplearbvb.preference.core.Preference;
-
 import org.androidannotations.annotations.EBean;
 
 

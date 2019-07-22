@@ -2,7 +2,6 @@ package com.bvblogic.examplearbvb.mvp.manager.core.core;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
 
 

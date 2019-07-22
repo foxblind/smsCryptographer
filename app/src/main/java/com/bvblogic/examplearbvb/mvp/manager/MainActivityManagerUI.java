@@ -2,24 +2,15 @@ package com.bvblogic.examplearbvb.mvp.manager;
 
 import android.annotation.SuppressLint;
 import android.support.v4.app.Fragment;
-
 import android.support.v7.app.AppCompatActivity;
-
 import com.bvblogic.examplearbvb.R;
-
-
 import com.bvblogic.examplearbvb.fragment.ChatsFragment_;
-
 import com.bvblogic.examplearbvb.fragment.CreateChatFragment_;
-
 import com.bvblogic.examplearbvb.fragment.MessagesFragment_;
-
 import com.bvblogic.examplearbvb.mvp.core.FragmentById;
 import com.bvblogic.examplearbvb.mvp.core.FragmentData;
 import com.bvblogic.examplearbvb.mvp.manager.core.BaseMainActivityManagerUI;
-
 import java.util.ArrayList;
-
 
 
 /**

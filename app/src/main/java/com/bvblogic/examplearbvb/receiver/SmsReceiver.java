@@ -7,11 +7,8 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
-
 import com.bvblogic.examplearbvb.db.domain.Message;
-
 import com.bvblogic.examplearbvb.db.presenter.MessagePresenter;
-
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EReceiver;
 
@@ -54,8 +51,6 @@ public class SmsReceiver extends BroadcastReceiver {
     }
 
     private static class notifyAsyncTask extends AsyncTask<MessagePresenter, Void, Void> {
-
-        private String CHANNEL_ID = "1a2b3c4d";
 
         @Override
         protected Void doInBackground(MessagePresenter... params) {

@@ -1,29 +1,18 @@
 package com.bvblogic.examplearbvb.fragment.core;
 
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.RelativeLayout;
 import android.widget.Toolbar;
-
 import com.bvblogic.examplearbvb.R;
 import com.bvblogic.examplearbvb.mvp.core.FragmentData;
 import com.bvblogic.examplearbvb.mvp.core.FragmentFeedback;
 import com.bvblogic.examplearbvb.mvp.core.ToolBarById;
-
 import org.androidannotations.annotations.AfterInject;
-import org.androidannotations.annotations.Bean;
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 

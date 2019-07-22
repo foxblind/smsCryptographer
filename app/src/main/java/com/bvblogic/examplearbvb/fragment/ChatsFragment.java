@@ -3,23 +3,16 @@ package com.bvblogic.examplearbvb.fragment;
 
 import android.content.pm.PackageManager;
 import android.support.v4.content.ContextCompat;
-
-
 import com.bvblogic.examplearbvb.R;
-
 import com.bvblogic.examplearbvb.activity.core.BaseActivity;
 import com.bvblogic.examplearbvb.config.Config;
-
 import com.bvblogic.examplearbvb.db.presenter.ChatPresenter;
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
 import com.bvblogic.examplearbvb.mvp.core.FragmentById;
 import com.bvblogic.examplearbvb.mvp.core.FragmentData;
-
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
-
 import org.androidannotations.annotations.EFragment;
 
 @EFragment(R.layout.fragment_chat_list)

@@ -7,7 +7,6 @@ package com.bvblogic.examplearbvb.preference.core;
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;

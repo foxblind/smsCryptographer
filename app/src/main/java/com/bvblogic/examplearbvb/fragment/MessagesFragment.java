@@ -7,15 +7,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bvblogic.examplearbvb.R;
-
+import com.bvblogic.examplearbvb.adapter.activities.MessageItemView;
 import com.bvblogic.examplearbvb.db.domain.Message;
 import com.bvblogic.examplearbvb.db.presenter.MessagePresenter;
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
 import com.bvblogic.examplearbvb.sender.core.Sender;
 import com.bvblogic.examplearbvb.sender.SmsSender;
-
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
@@ -37,22 +35,15 @@ public class MessagesFragment extends BaseFragment {
     EditText inpMessage;
     @AfterViews
     public void init() {
+
         messagePresenter.getAllMessages();
         messageList = getActivity().findViewById(R.id.messageList);
         header = getActivity().findViewById(R.id.header);
-
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         String chatHeader = sharedPref.getString("HEADER", "");
 
         header.setText(chatHeader);
         Toast.makeText(getContext(), header.getText().toString(),Toast.LENGTH_LONG).show();
-        header.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
 
         messagePresenter.getMessagesFromChat(chatHeader);
     }
@@ -79,4 +70,12 @@ public class MessagesFragment extends BaseFragment {
         inpMessage.setText("");
         messagePresenter.saveMessage(message);
     }
+
+    @Click
+    void header()
+    {
+
+    }
+
+
 }
