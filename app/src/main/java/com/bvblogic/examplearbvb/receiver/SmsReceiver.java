@@ -8,14 +8,9 @@ import android.os.AsyncTask;
 import android.provider.Telephony;
 import android.telephony.SmsMessage;
 
-
-import com.bvblogic.examplearbvb.activity.MainActivity_;
-import com.bvblogic.examplearbvb.activity.core.BaseActivity;
 import com.bvblogic.examplearbvb.db.domain.Message;
 
 import com.bvblogic.examplearbvb.db.presenter.MessagePresenter;
-import com.bvblogic.examplearbvb.mvp.core.FragmentById;
-import com.bvblogic.examplearbvb.mvp.core.FragmentData;
 
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EReceiver;

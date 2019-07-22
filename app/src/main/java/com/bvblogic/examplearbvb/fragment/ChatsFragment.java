@@ -1,35 +1,26 @@
 package com.bvblogic.examplearbvb.fragment;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.SharedPreferences;
+
 import android.content.pm.PackageManager;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+
 
 import com.bvblogic.examplearbvb.R;
 
 import com.bvblogic.examplearbvb.activity.core.BaseActivity;
 import com.bvblogic.examplearbvb.config.Config;
-import com.bvblogic.examplearbvb.db.domain.Chat;
+
 import com.bvblogic.examplearbvb.db.presenter.ChatPresenter;
 import com.bvblogic.examplearbvb.fragment.core.BaseFragment;
 import com.bvblogic.examplearbvb.mvp.core.FragmentById;
 import com.bvblogic.examplearbvb.mvp.core.FragmentData;
-import com.bvblogic.examplearbvb.mvp.core.ToolBarById;
+
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.Click;
-import org.androidannotations.annotations.EActivity;
+
 import org.androidannotations.annotations.EFragment;
-import org.androidannotations.annotations.RootContext;
-
-import java.util.Random;
-
-import carbon.widget.FloatingActionButton;
 
 @EFragment(R.layout.fragment_chat_list)
 public class ChatsFragment extends BaseFragment {
